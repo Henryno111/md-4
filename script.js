@@ -33,21 +33,25 @@ WARNING!!! WARNING!!!
 // Wrap the entire contents of script.js inside of an IIFE
 // See Lecture 52, part 2
 // (Note, Step 2 will be done in the SpeakHello.js file.)
-(function () {
 
-    var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
-    
-    
-    for (var i = 0; i < names.length; i++) {
-    
-      
-      var firstLetter = names[i].charAt(0).toLowerCase();
-    
-      
-      if (firstLetter === 'j') {
-        byeSpeaker.speak(names[i]);
-      } else {
-        helloSpeaker.speak(names[i]);
-      }
+
+(function(){
+  var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+
+  //loop through all the names
+  for (var indx in names) {
+    //select lowercase of firt letter from name array
+    var firstLetter = names[indx].charAt(0).toLowerCase(); 
+
+    //call byeSpeaker for letters that begin with "j" else call helloSpeaker
+    if (firstLetter === 'j') {
+      byeSpeaker.speak(names[indx]);
+    } else {
+      helloSpeaker.speak(names[indx]);
     }
+  }
+
 })();
+
+
+
